@@ -1,17 +1,35 @@
+import { useState } from "react";
 import HandButton from "./components/HandButton"
 import History from "./components/History"
 import Betting from "./components/Betting"
 import HandDisplay from "./components/HandDisplay";
-import ResetButton from "./components/ResetButton";
 import ScoreBoard from "./components/SocreBoard";
+import resetImg from "./assets/ic-reset.svg";
 const App = () =>{
+
+  const [playScore, setPlayScore] = useState(0);
+  
+  const [otherScore, setOtherScore] = useState(0);
+
+  const ResetButton = () =>{
+    // 초기화 변수들 추가
+  }
+
+
+
+
 
   return (
     <div>
       <h1>가위바위보</h1>
-      <ResetButton/> {/* onClick에 reset 함수 추가해야함 */}
+      <img
+        className="App-reset" 
+        src={resetImg} 
+        alt="초기화"
+        onClick={ResetButton} 
+      />
       <div>
-        <ScoreBoard/> {/* 양쪽 playScore 점수 추가해야함(함수) */}
+        <ScoreBoard playScore={playScore} otherScore={otherScore}/> {/* 양쪽 playScore 점수 추가해야함(함수) */}
       </div>
       <div className="Box App-box">
         <div>
