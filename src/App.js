@@ -7,9 +7,11 @@ import ScoreBoard from "./components/SocreBoard";
 import resetImg from "./assets/ic-reset.svg";
 const App = () =>{
 
-  const [playScore, setPlayScore] = useState(0);
-  
+  const [playerScore, setPlayScore] = useState(0);
+  const [playerHand, setPlayerHand] = useState([]);
+
   const [otherScore, setOtherScore] = useState(0);
+  const [otherHand, setOtherHand] = useState([]);
 
   const ResetButton = () =>{
     // 초기화 변수들 추가
@@ -29,11 +31,11 @@ const App = () =>{
         onClick={ResetButton} 
       />
       <div>
-        <ScoreBoard playScore={playScore} otherScore={otherScore}/> {/* 양쪽 playScore 점수 추가해야함(함수) */}
+        <ScoreBoard playerScore={playerScore} otherScore={otherScore}/> 
       </div>
       <div className="Box App-box">
         <div>
-          <HandDisplay/> {/* Hand결과에 따라 바뀌는 이미지 함수 추가해야함 */}
+          <HandDisplay playerHand={playerHand} otherHand={otherHand}/> 
           <Betting/> {/* 베팅값 추가 */}
           <History/> {/* history 추가 */}
         </div>
