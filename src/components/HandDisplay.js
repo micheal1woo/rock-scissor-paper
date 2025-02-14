@@ -17,3 +17,4 @@ const HandDisplay =({playerHand = "rock", otherHand = "rock"})=> {
     </div>
   )
 } 
+export default HandDisplay;
