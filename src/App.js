@@ -3,22 +3,23 @@ import HandButton from "./components/HandButton"
 import History from "./components/History"
 import Betting from "./components/Betting"
 import HandDisplay from "./components/HandDisplay";
-import ScoreBoard from "./components/SocreBoard";
+import ScoreBoard from "./components/ScoreBoard";
 import resetImg from "./assets/ic-reset.svg";
 const App = () =>{
 
-  const [playerScore, setPlayScore] = useState(0);
+  const [playerScore, setPlayerScore] = useState(0);
   const [playerHand, setPlayerHand] = useState([]);
 
   const [otherScore, setOtherScore] = useState(0);
   const [otherHand, setOtherHand] = useState([]);
 
-  const ResetButton = () =>{
-    // 초기화 변수들 추가
+  const ResetButton = () => {
+    setPlayerScore(0);
+    setPlayerHand([]);
+    setOtherScore(0);
+    setOtherHand([]);
+
   }
-
-
-
 
 
   return (
@@ -33,7 +34,7 @@ const App = () =>{
       <div>
         <ScoreBoard playerScore={playerScore} otherScore={otherScore}/> 
       </div>
-      <div className="Box App-box">
+      <div>
         <div>
           <HandDisplay playerHand={playerHand} otherHand={otherHand}/> 
           <Betting/> {/* 베팅값 추가 */}
